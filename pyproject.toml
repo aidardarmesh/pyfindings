@@ -9,6 +9,7 @@ readme = "README.md"
 python = "^3.12"
 pydantic = "^2.10.3"
 selenium = "^4.27.1"
+django = "^5.1.4"
 
 
 [build-system]
