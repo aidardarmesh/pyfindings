@@ -3,9 +3,10 @@ import unittest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from django.test import LiveServerTestCase
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
 
@@ -18,7 +19,7 @@ class NewVisitorTest(unittest.TestCase):
         self.assertIn(row_text, [row.text for row in rows])
 
     def test_can_start_a_todo_list(self):
-        self.browser.get("http://localhost:8000")
+        self.browser.get(self.live_server_url)
 
         self.assertIn("To-Do", self.browser.title)
         header_text = self.browser.find_element(By.TAG_NAME, "h1").text
@@ -40,9 +41,3 @@ class NewVisitorTest(unittest.TestCase):
         rows = table.find_elements(By.TAG_NAME, "tr")
         self.check_for_row_in_list_table("1: Buy peacock feathers")
         self.check_for_row_in_list_table("2: Use peacock feathers to make a fly")
-
-        self.fail("Finish the test!")
-
-
-if __name__ == '__main__':
-    unittest.main()
