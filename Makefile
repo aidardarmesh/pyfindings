@@ -2,7 +2,7 @@ runserver:
 	python manage.py runserver
 
 test:
-	python manage.py test
+	python manage.py test lists
 
 ft:
 	python manage.py test functional_tests
