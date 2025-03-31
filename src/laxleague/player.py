@@ -12,3 +12,10 @@ class Player:
 
     def add_guardian(self, guardian: Guardian):
         self.guardians.append(guardian)
+
+    def add_guardians(self, guardians: list[Guardian]):
+        self.guardians.extend(guardians)
+
+    @property
+    def primary_guardian(self):
+        return self.guardians[0]
