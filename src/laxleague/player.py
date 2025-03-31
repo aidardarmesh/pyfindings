@@ -8,14 +8,14 @@ class Player:
     first_name: str
     last_name: str
     jersey: int
-    guardians: list[Guardian] = dataclasses.field(default_factory=list)
+    guardians_list: list[Guardian] = dataclasses.field(default_factory=list)
 
     def add_guardian(self, guardian: Guardian):
-        self.guardians.append(guardian)
+        self.guardians_list.append(guardian)
 
     def add_guardians(self, guardians: list[Guardian]):
-        self.guardians.extend(guardians)
+        self.guardians_list.extend(guardians)
 
     @property
     def primary_guardian(self):
-        return self.guardians[0]
+        return self.guardians_list[0]
